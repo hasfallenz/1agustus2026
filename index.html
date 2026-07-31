@@ -1,40 +1,48 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-  <meta name="description" content="Happy National Girlfriend Day - Untuk Alifa Al Hidayah, dengan cinta tulus dari hatiku." />
+  <meta name="description"
+    content="Happy National Girlfriend Day - Untuk Alifa Al Hidayah, dengan cinta tulus dari hatiku." />
   <title>Happy National Girlfriend Day 💕 Alifa</title>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Playfair+Display:ital,wght@0,600;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Pacifico&family=Playfair+Display:ital,wght@0,600;1,400&family=Poppins:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
 
   <style>
     /* ============================================
        RESET & BASE STYLES
     ============================================ */
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
     :root {
-      --pink-light:   #ffd6e7;
-      --pink-mid:     #ffb3d1;
-      --pink-deep:    #e8649a;
-      --rose:         #c2185b;
-      --peach:        #ffcba4;
-      --dark-bg:      #1a0a12;
-      --text-light:   #fff0f5;
-      --text-soft:    #f5c0d8;
-      --text-muted:   #d48aab;
-      --gold:         #f4c87a;
+      --pink-light: #ffd6e7;
+      --pink-mid: #ffb3d1;
+      --pink-deep: #e8649a;
+      --rose: #c2185b;
+      --peach: #ffcba4;
+      --dark-bg: #1a0a12;
+      --text-light: #fff0f5;
+      --text-soft: #f5c0d8;
+      --text-muted: #d48aab;
+      --gold: #f4c87a;
     }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       font-family: 'Poppins', sans-serif;
@@ -58,6 +66,7 @@
       background: linear-gradient(135deg, #1a0a12 0%, #3d0d2b 40%, #1a0a12 100%);
       transition: opacity 0.8s ease, visibility 0.8s ease;
     }
+
     #splash-screen.hidden {
       opacity: 0;
       visibility: hidden;
@@ -70,47 +79,106 @@
       height: 120px;
       margin-bottom: 28px;
     }
+
     .splash-center-heart {
       position: absolute;
-      top: 50%; left: 50%;
+      top: 50%;
+      left: 50%;
       transform: translate(-50%, -50%);
       font-size: 52px;
       animation: splashPulse 1.2s ease-in-out infinite;
       filter: drop-shadow(0 0 12px #e8649a);
     }
+
     .orbit-heart {
       position: absolute;
       font-size: 18px;
-      width: 100%; height: 100%;
-      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
       animation: orbitSpin 2.4s linear infinite;
       transform-origin: center center;
     }
-    .orbit-heart span { position: absolute; top: 0; left: 50%; transform: translateX(-50%); }
-    .orbit-heart:nth-child(2) { animation-delay: -0.6s; }
-    .orbit-heart:nth-child(3) { animation-delay: -1.2s; }
-    .orbit-heart:nth-child(4) { animation-delay: -1.8s; }
+
+    .orbit-heart span {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .orbit-heart:nth-child(2) {
+      animation-delay: -0.6s;
+    }
+
+    .orbit-heart:nth-child(3) {
+      animation-delay: -1.2s;
+    }
+
+    .orbit-heart:nth-child(4) {
+      animation-delay: -1.8s;
+    }
 
     @keyframes orbitSpin {
-      from { transform: rotate(0deg); }
-      to   { transform: rotate(360deg); }
-    }
-    @keyframes splashPulse {
-      0%, 100% { transform: translate(-50%,-50%) scale(1); }
-      50%       { transform: translate(-50%,-50%) scale(1.18); }
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
     }
 
-    .splash-loading-bar { display: flex; gap: 10px; margin-bottom: 22px; }
+    @keyframes splashPulse {
+
+      0%,
+      100% {
+        transform: translate(-50%, -50%) scale(1);
+      }
+
+      50% {
+        transform: translate(-50%, -50%) scale(1.18);
+      }
+    }
+
+    .splash-loading-bar {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+
     .splash-loading-bar span {
-      width: 10px; height: 10px; border-radius: 50%;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
       background: #ffb3d1;
       animation: bounceDot 1s ease-in-out infinite;
     }
-    .splash-loading-bar span:nth-child(2) { animation-delay: 0.18s; background: #e8649a; }
-    .splash-loading-bar span:nth-child(3) { animation-delay: 0.36s; background: #ffcba4; }
+
+    .splash-loading-bar span:nth-child(2) {
+      animation-delay: 0.18s;
+      background: #e8649a;
+    }
+
+    .splash-loading-bar span:nth-child(3) {
+      animation-delay: 0.36s;
+      background: #ffcba4;
+    }
+
     @keyframes bounceDot {
-      0%, 80%, 100% { transform: scale(0.8) translateY(0); opacity: 0.6; }
-      40%            { transform: scale(1.2) translateY(-8px); opacity: 1; }
+
+      0%,
+      80%,
+      100% {
+        transform: scale(0.8) translateY(0);
+        opacity: 0.6;
+      }
+
+      40% {
+        transform: scale(1.2) translateY(-8px);
+        opacity: 1;
+      }
     }
 
     .splash-text {
@@ -120,7 +188,7 @@
       color: #ffd6e7;
       text-align: center;
       animation: fadeInUp 0.8s ease forwards;
-      text-shadow: 0 0 20px rgba(232,100,154,0.6);
+      text-shadow: 0 0 20px rgba(232, 100, 154, 0.6);
     }
 
     /* ============================================
@@ -133,6 +201,7 @@
       pointer-events: none;
       overflow: hidden;
     }
+
     .heart-particle {
       position: absolute;
       bottom: -60px;
@@ -140,11 +209,25 @@
       animation: floatUp linear infinite;
       user-select: none;
     }
+
     @keyframes floatUp {
-      0%   { transform: translateY(0) scale(0.6) rotate(0deg); opacity: 0; }
-      10%  { opacity: 0.7; }
-      80%  { opacity: 0.4; }
-      100% { transform: translateY(-110vh) scale(1.1) rotate(25deg); opacity: 0; }
+      0% {
+        transform: translateY(0) scale(0.6) rotate(0deg);
+        opacity: 0;
+      }
+
+      10% {
+        opacity: 0.7;
+      }
+
+      80% {
+        opacity: 0.4;
+      }
+
+      100% {
+        transform: translateY(-110vh) scale(1.1) rotate(25deg);
+        opacity: 0;
+      }
     }
 
     /* ============================================
@@ -170,13 +253,16 @@
       position: relative;
       overflow: hidden;
     }
+
     .hero::before {
       content: '';
       position: absolute;
-      top: 40%; left: 50%;
-      transform: translate(-50%,-50%);
-      width: 340px; height: 340px;
-      background: radial-gradient(circle, rgba(232,100,154,0.22) 0%, transparent 70%);
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 340px;
+      height: 340px;
+      background: radial-gradient(circle, rgba(232, 100, 154, 0.22) 0%, transparent 70%);
       border-radius: 50%;
       pointer-events: none;
     }
@@ -185,8 +271,8 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: rgba(232,100,154,0.18);
-      border: 1px solid rgba(232,100,154,0.4);
+      background: rgba(232, 100, 154, 0.18);
+      border: 1px solid rgba(232, 100, 154, 0.4);
       border-radius: 999px;
       padding: 6px 16px;
       font-size: 0.78rem;
@@ -198,6 +284,7 @@
       backdrop-filter: blur(8px);
       animation: fadeInDown 0.8s 0.2s ease both;
     }
+
     .hero-date {
       font-size: clamp(0.82rem, 3.2vw, 1rem);
       color: #d48aab;
@@ -206,6 +293,7 @@
       margin-bottom: 10px;
       animation: fadeInDown 0.8s 0.3s ease both;
     }
+
     .hero-title {
       font-family: 'Playfair Display', serif;
       font-size: clamp(2rem, 8vw, 3.2rem);
@@ -215,6 +303,7 @@
       margin-bottom: 20px;
       animation: fadeInUp 0.9s 0.4s ease both;
     }
+
     .hero-title span {
       display: block;
       font-style: italic;
@@ -224,16 +313,20 @@
       background-clip: text;
     }
 
-    .hero-name-wrapper { margin: 8px 0 32px; animation: fadeInUp 1s 0.55s ease both; }
+    .hero-name-wrapper {
+      margin: 8px 0 32px;
+      animation: fadeInUp 1s 0.55s ease both;
+    }
+
     .hero-name {
       font-family: 'Pacifico', cursive;
       font-size: clamp(1.9rem, 8vw, 3.2rem);
       font-weight: 400;
       color: #ffb3d1;
       text-shadow:
-        0 0 20px rgba(232,100,154,0.8),
-        0 0 40px rgba(232,100,154,0.4),
-        2px 2px 0px rgba(0,0,0,0.3);
+        0 0 20px rgba(232, 100, 154, 0.8),
+        0 0 40px rgba(232, 100, 154, 0.4),
+        2px 2px 0px rgba(0, 0, 0, 0.3);
       line-height: 1.25;
       letter-spacing: 0.5px;
     }
@@ -245,8 +338,11 @@
       margin-bottom: 30px;
       animation: fadeInUp 1s 0.65s ease both;
     }
+
     .hero-divider-line {
-      flex: 1; height: 1px; max-width: 80px;
+      flex: 1;
+      height: 1px;
+      max-width: 80px;
       background: linear-gradient(90deg, transparent, #e8649a, transparent);
     }
 
@@ -268,22 +364,38 @@
       color: #d48aab;
       font-size: 0.78rem;
     }
+
     .scroll-arrow {
-      width: 20px; height: 20px;
+      width: 20px;
+      height: 20px;
       border-right: 2px solid #e8649a;
       border-bottom: 2px solid #e8649a;
       transform: rotate(45deg);
       animation: arrowBounce 1.4s ease-in-out infinite;
     }
+
     @keyframes arrowBounce {
-      0%, 100% { transform: rotate(45deg) translateY(0); opacity: 0.5; }
-      50%       { transform: rotate(45deg) translateY(5px); opacity: 1; }
+
+      0%,
+      100% {
+        transform: rotate(45deg) translateY(0);
+        opacity: 0.5;
+      }
+
+      50% {
+        transform: rotate(45deg) translateY(5px);
+        opacity: 1;
+      }
     }
 
     /* ============================================
        SECTION LABEL
     ============================================ */
-    .section-label { text-align: center; padding: 48px 24px 8px; }
+    .section-label {
+      text-align: center;
+      padding: 48px 24px 8px;
+    }
+
     .section-label-text {
       display: inline-flex;
       align-items: center;
@@ -292,7 +404,7 @@
       font-weight: 600;
       font-size: clamp(1.1rem, 4.5vw, 1.4rem);
       color: #ffb3d1;
-      text-shadow: 0 0 18px rgba(232,100,154,0.5);
+      text-shadow: 0 0 18px rgba(232, 100, 154, 0.5);
     }
 
     /* ============================================
@@ -310,22 +422,32 @@
       transform: translateY(50px) translateX(-30px);
       transition: opacity 0.7s ease, transform 0.7s ease;
     }
-    .timeline-item:nth-child(even) { transform: translateY(50px) translateX(30px); }
-    .timeline-item.visible          { opacity: 1; transform: translateY(0) translateX(0); }
+
+    .timeline-item:nth-child(even) {
+      transform: translateY(50px) translateX(30px);
+    }
+
+    .timeline-item.visible {
+      opacity: 1;
+      transform: translateY(0) translateX(0);
+    }
 
     .timeline-card {
-      background: linear-gradient(145deg, rgba(45,16,32,0.85), rgba(30,8,20,0.9));
-      border: 1px solid rgba(232,100,154,0.22);
+      background: linear-gradient(145deg, rgba(45, 16, 32, 0.85), rgba(30, 8, 20, 0.9));
+      border: 1px solid rgba(232, 100, 154, 0.22);
       border-radius: 24px;
       overflow: hidden;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
       backdrop-filter: blur(12px);
       position: relative;
     }
+
     .timeline-card::before {
       content: '';
       position: absolute;
-      top: 0; left: 0; right: 0;
+      top: 0;
+      left: 0;
+      right: 0;
       height: 2px;
       background: linear-gradient(90deg, transparent, #e8649a, #f4c87a, #e8649a, transparent);
       opacity: 0.7;
@@ -333,9 +455,10 @@
 
     .photo-number-badge {
       position: absolute;
-      top: 14px; left: 14px;
-      background: rgba(0,0,0,0.55);
-      border: 1px solid rgba(232,100,154,0.4);
+      top: 14px;
+      left: 14px;
+      background: rgba(0, 0, 0, 0.55);
+      border: 1px solid rgba(232, 100, 154, 0.4);
       border-radius: 999px;
       padding: 3px 12px;
       font-size: 0.7rem;
@@ -356,28 +479,47 @@
       width: 100%;
       background: linear-gradient(135deg, #2d1020, #1a0510);
     }
+
     .photo-wrapper img {
       width: 100%;
       height: auto;
       display: block;
       transition: transform 0.6s ease;
     }
+
     .timeline-card:hover .photo-wrapper img,
-    .timeline-card:active .photo-wrapper img { transform: scale(1.02); }
+    .timeline-card:active .photo-wrapper img {
+      transform: scale(1.02);
+    }
 
     /* Gradient haze di bawah foto agar nyambung ke teks */
     .photo-overlay {
       position: absolute;
-      bottom: 0; left: 0; right: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
       height: 40%;
-      background: linear-gradient(to top, rgba(26,10,18,0.85) 0%, transparent 100%);
+      background: linear-gradient(to top, rgba(26, 10, 18, 0.85) 0%, transparent 100%);
       pointer-events: none;
     }
-    /* Sembunyikan placeholder — foto sudah diisi */
-    .photo-placeholder { display: none; }
 
-    .card-body { padding: 22px 20px 26px; }
-    .card-quote-icon { font-size: 1.6rem; color: #e8649a; opacity: 0.6; margin-bottom: 10px; display: block; }
+    /* Sembunyikan placeholder — foto sudah diisi */
+    .photo-placeholder {
+      display: none;
+    }
+
+    .card-body {
+      padding: 22px 20px 26px;
+    }
+
+    .card-quote-icon {
+      font-size: 1.6rem;
+      color: #e8649a;
+      opacity: 0.6;
+      margin-bottom: 10px;
+      display: block;
+    }
+
     .card-text {
       font-size: clamp(0.9rem, 3.6vw, 1rem);
       line-height: 1.85;
@@ -385,13 +527,38 @@
       font-style: normal;
       font-weight: 400;
     }
-    .card-heart-row { margin-top: 16px; display: flex; gap: 5px; }
-    .card-heart-row span { font-size: 0.85rem; animation: subtlePulse 2s ease-in-out infinite; }
-    .card-heart-row span:nth-child(2) { animation-delay: 0.3s; }
-    .card-heart-row span:nth-child(3) { animation-delay: 0.6s; }
+
+    .card-heart-row {
+      margin-top: 16px;
+      display: flex;
+      gap: 5px;
+    }
+
+    .card-heart-row span {
+      font-size: 0.85rem;
+      animation: subtlePulse 2s ease-in-out infinite;
+    }
+
+    .card-heart-row span:nth-child(2) {
+      animation-delay: 0.3s;
+    }
+
+    .card-heart-row span:nth-child(3) {
+      animation-delay: 0.6s;
+    }
+
     @keyframes subtlePulse {
-      0%, 100% { opacity: 0.5; transform: scale(1); }
-      50%       { opacity: 1; transform: scale(1.25); }
+
+      0%,
+      100% {
+        opacity: 0.5;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1.25);
+      }
     }
 
     /* ============================================
@@ -405,13 +572,16 @@
       align-items: center;
       position: relative;
     }
+
     .lily-footer::before {
       content: '';
       position: absolute;
-      bottom: 30%; left: 50%;
+      bottom: 30%;
+      left: 50%;
       transform: translateX(-50%);
-      width: 280px; height: 280px;
-      background: radial-gradient(circle, rgba(232,100,154,0.12) 0%, transparent 70%);
+      width: 280px;
+      height: 280px;
+      background: radial-gradient(circle, rgba(232, 100, 154, 0.12) 0%, transparent 70%);
       border-radius: 50%;
       pointer-events: none;
     }
@@ -419,78 +589,141 @@
     /* Pure-CSS Lily Flower — bergoyang tertiup angin */
     .lily-scene {
       position: relative;
-      width: 160px; height: 200px;
+      width: 160px;
+      height: 200px;
       margin-bottom: 28px;
       animation: swayGentle 3.5s ease-in-out infinite;
       transform-origin: bottom center;
     }
+
     @keyframes swayGentle {
-      0%, 100% { transform: rotate(-4deg); }
-      50%       { transform: rotate(4deg); }
+
+      0%,
+      100% {
+        transform: rotate(-4deg);
+      }
+
+      50% {
+        transform: rotate(4deg);
+      }
     }
 
     .lily-stem {
       position: absolute;
-      bottom: 0; left: 50%;
+      bottom: 0;
+      left: 50%;
       transform: translateX(-50%);
-      width: 5px; height: 110px;
+      width: 5px;
+      height: 110px;
       background: linear-gradient(to top, #2d6a2d, #5cb85c);
       border-radius: 3px;
     }
+
     .lily-leaf {
       position: absolute;
-      width: 40px; height: 18px;
+      width: 40px;
+      height: 18px;
       background: linear-gradient(135deg, #3d8b3d, #5cb85c);
       border-radius: 0 50% 0 50%;
     }
-    .lily-leaf.left  { bottom: 42px; left: calc(50% - 38px); transform: rotate(-30deg); }
-    .lily-leaf.right { bottom: 65px; left: calc(50% + 3px);  transform: rotate(30deg) scaleX(-1); }
+
+    .lily-leaf.left {
+      bottom: 42px;
+      left: calc(50% - 38px);
+      transform: rotate(-30deg);
+    }
+
+    .lily-leaf.right {
+      bottom: 65px;
+      left: calc(50% + 3px);
+      transform: rotate(30deg) scaleX(-1);
+    }
 
     .lily-flower-head {
       position: absolute;
-      bottom: 95px; left: 50%;
+      bottom: 95px;
+      left: 50%;
       transform: translateX(-50%);
-      width: 120px; height: 110px;
+      width: 120px;
+      height: 110px;
     }
+
     .petal {
       position: absolute;
-      width: 42px; height: 65px;
+      width: 42px;
+      height: 65px;
       border-radius: 50% 50% 30% 30% / 60% 60% 40% 40%;
-      top: 20px; left: 50%;
+      top: 20px;
+      left: 50%;
       transform-origin: bottom center;
       background: linear-gradient(160deg, #ffb3d1, #e8649a, #c2185b);
-      box-shadow: inset 0 -6px 12px rgba(0,0,0,0.2), 0 0 10px rgba(232,100,154,0.3);
+      box-shadow: inset 0 -6px 12px rgba(0, 0, 0, 0.2), 0 0 10px rgba(232, 100, 154, 0.3);
       margin-left: -21px;
     }
-    .petal:nth-child(1) { transform: rotate(0deg);    }
-    .petal:nth-child(2) { transform: rotate(51.4deg); }
-    .petal:nth-child(3) { transform: rotate(102.8deg);}
-    .petal:nth-child(4) { transform: rotate(154.3deg);}
-    .petal:nth-child(5) { transform: rotate(205.7deg);}
-    .petal:nth-child(6) { transform: rotate(257.1deg);}
-    .petal:nth-child(7) { transform: rotate(308.6deg);}
+
+    .petal:nth-child(1) {
+      transform: rotate(0deg);
+    }
+
+    .petal:nth-child(2) {
+      transform: rotate(51.4deg);
+    }
+
+    .petal:nth-child(3) {
+      transform: rotate(102.8deg);
+    }
+
+    .petal:nth-child(4) {
+      transform: rotate(154.3deg);
+    }
+
+    .petal:nth-child(5) {
+      transform: rotate(205.7deg);
+    }
+
+    .petal:nth-child(6) {
+      transform: rotate(257.1deg);
+    }
+
+    .petal:nth-child(7) {
+      transform: rotate(308.6deg);
+    }
 
     .lily-center {
       position: absolute;
-      top: 32px; left: 50%;
+      top: 32px;
+      left: 50%;
       transform: translateX(-50%);
-      width: 26px; height: 26px;
+      width: 26px;
+      height: 26px;
       background: radial-gradient(circle, #f4c87a, #e8a020);
       border-radius: 50%;
-      box-shadow: 0 0 14px rgba(244,200,122,0.6);
+      box-shadow: 0 0 14px rgba(244, 200, 122, 0.6);
       z-index: 2;
     }
+
     .stamen {
       position: absolute;
-      width: 3px; height: 16px;
+      width: 3px;
+      height: 16px;
       background: linear-gradient(to top, #e8a020, #f4c87a);
       border-radius: 2px;
-      bottom: -12px; left: 50%;
+      bottom: -12px;
+      left: 50%;
       transform-origin: bottom center;
     }
-    .stamen:nth-child(1) { transform: translateX(-50%) rotate(-30deg); }
-    .stamen:nth-child(2) { transform: translateX(-50%) rotate(0deg); }
-    .stamen:nth-child(3) { transform: translateX(-50%) rotate(30deg); }
+
+    .stamen:nth-child(1) {
+      transform: translateX(-50%) rotate(-30deg);
+    }
+
+    .stamen:nth-child(2) {
+      transform: translateX(-50%) rotate(0deg);
+    }
+
+    .stamen:nth-child(3) {
+      transform: translateX(-50%) rotate(30deg);
+    }
 
     .lily-sparkle {
       position: absolute;
@@ -498,12 +731,44 @@
       background: #ffb3d1;
       animation: sparkleFloat 2.8s ease-in-out infinite;
     }
-    .lily-sparkle:nth-child(1) { width:5px; height:5px; top:-5px;  left:15px;  animation-delay:0s; }
-    .lily-sparkle:nth-child(2) { width:4px; height:4px; top:5px;   right:10px; animation-delay:0.7s; }
-    .lily-sparkle:nth-child(3) { width:6px; height:6px; top:-10px; right:20px; animation-delay:1.4s; background:#f4c87a; }
+
+    .lily-sparkle:nth-child(1) {
+      width: 5px;
+      height: 5px;
+      top: -5px;
+      left: 15px;
+      animation-delay: 0s;
+    }
+
+    .lily-sparkle:nth-child(2) {
+      width: 4px;
+      height: 4px;
+      top: 5px;
+      right: 10px;
+      animation-delay: 0.7s;
+    }
+
+    .lily-sparkle:nth-child(3) {
+      width: 6px;
+      height: 6px;
+      top: -10px;
+      right: 20px;
+      animation-delay: 1.4s;
+      background: #f4c87a;
+    }
+
     @keyframes sparkleFloat {
-      0%, 100% { transform: translateY(0) scale(1); opacity: 0.4; }
-      50%       { transform: translateY(-8px) scale(1.4); opacity: 1; }
+
+      0%,
+      100% {
+        transform: translateY(0) scale(1);
+        opacity: 0.4;
+      }
+
+      50% {
+        transform: translateY(-8px) scale(1.4);
+        opacity: 1;
+      }
     }
 
     .lily-message {
@@ -517,35 +782,102 @@
       text-align: center;
       opacity: 0;
     }
-    .lily-message em { color: #ffb3d1; font-style: normal; }
 
-    .footer-hearts { margin-top: 28px; display: flex; gap: 8px; justify-content: center; }
-    .footer-hearts span { font-size: 1.1rem; animation: subtlePulse 1.8s ease-in-out infinite; }
-    .footer-hearts span:nth-child(2) { animation-delay: 0.3s; font-size: 1.5rem; }
-    .footer-hearts span:nth-child(3) { animation-delay: 0.6s; }
+    .lily-message em {
+      color: #ffb3d1;
+      font-style: normal;
+    }
 
-    .footer-copyright { margin-top: 32px; font-size: 0.72rem; color: #d48aab; opacity: 0.5; letter-spacing: 0.5px; }
+    .footer-hearts {
+      margin-top: 28px;
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+    }
+
+    .footer-hearts span {
+      font-size: 1.1rem;
+      animation: subtlePulse 1.8s ease-in-out infinite;
+    }
+
+    .footer-hearts span:nth-child(2) {
+      animation-delay: 0.3s;
+      font-size: 1.5rem;
+    }
+
+    .footer-hearts span:nth-child(3) {
+      animation-delay: 0.6s;
+    }
+
+    .footer-copyright {
+      margin-top: 32px;
+      font-size: 0.72rem;
+      color: #d48aab;
+      opacity: 0.5;
+      letter-spacing: 0.5px;
+    }
 
     /* ============================================
        KEYFRAMES
     ============================================ */
     @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
+
     @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-18px); }
-      to   { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(-18px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     /* Scrollbar */
-    ::-webkit-scrollbar { width: 5px; }
-    ::-webkit-scrollbar-track { background: #1a0a12; }
-    ::-webkit-scrollbar-thumb { background: #e8649a; border-radius: 4px; }
+    ::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #1a0a12;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #e8649a;
+      border-radius: 4px;
+    }
 
     /* Responsive */
-    @media (max-width: 380px) { .hero-name { font-size: 2.3rem; } .hero-title { font-size: 1.7rem; } }
-    @media (min-width: 600px) { .timeline, .lily-footer { max-width: 520px; margin-left: auto; margin-right: auto; } }
+    @media (max-width: 380px) {
+      .hero-name {
+        font-size: 2.3rem;
+      }
+
+      .hero-title {
+        font-size: 1.7rem;
+      }
+    }
+
+    @media (min-width: 600px) {
+
+      .timeline,
+      .lily-footer {
+        max-width: 520px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
 
     /* ============================================
        MUSIC PLAYER — pojok kiri bawah
@@ -563,12 +895,15 @@
       border-radius: 999px;
       padding: 8px 16px 8px 10px;
       backdrop-filter: blur(14px);
-      box-shadow: 0 4px 24px rgba(0,0,0,0.45), 0 0 0 1px rgba(232,100,154,0.1);
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(232, 100, 154, 0.1);
       cursor: pointer;
       user-select: none;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
-    #music-player:active { transform: scale(0.95); }
+
+    #music-player:active {
+      transform: scale(0.95);
+    }
 
     #music-btn {
       width: 36px;
@@ -581,17 +916,26 @@
       justify-content: center;
       cursor: pointer;
       flex-shrink: 0;
-      box-shadow: 0 0 12px rgba(232,100,154,0.5);
+      box-shadow: 0 0 12px rgba(232, 100, 154, 0.5);
       transition: transform 0.15s ease;
     }
-    #music-btn:active { transform: scale(0.9); }
-    #music-btn svg { width: 16px; height: 16px; fill: #fff; }
+
+    #music-btn:active {
+      transform: scale(0.9);
+    }
+
+    #music-btn svg {
+      width: 16px;
+      height: 16px;
+      fill: #fff;
+    }
 
     .music-info {
       display: flex;
       flex-direction: column;
       overflow: hidden;
     }
+
     .music-title {
       font-size: 0.72rem;
       font-weight: 600;
@@ -601,6 +945,7 @@
       text-overflow: ellipsis;
       max-width: 120px;
     }
+
     .music-status {
       font-size: 0.62rem;
       color: #d48aab;
@@ -615,22 +960,55 @@
       height: 16px;
       flex-shrink: 0;
     }
+
     .eq-bar {
       width: 3px;
       background: #e8649a;
       border-radius: 2px;
       animation: eqBounce 0.8s ease-in-out infinite;
     }
-    .eq-bar:nth-child(1) { height: 6px;  animation-delay: 0s;    }
-    .eq-bar:nth-child(2) { height: 12px; animation-delay: 0.15s; }
-    .eq-bar:nth-child(3) { height: 8px;  animation-delay: 0.3s;  }
-    .eq-bar:nth-child(4) { height: 14px; animation-delay: 0.1s;  }
-    @keyframes eqBounce {
-      0%, 100% { transform: scaleY(0.4); opacity: 0.6; }
-      50%       { transform: scaleY(1);   opacity: 1; }
+
+    .eq-bar:nth-child(1) {
+      height: 6px;
+      animation-delay: 0s;
     }
-    #music-player.paused .eq-bars { display: none; }
-    #music-player.paused .music-status::before { content: ''; }
+
+    .eq-bar:nth-child(2) {
+      height: 12px;
+      animation-delay: 0.15s;
+    }
+
+    .eq-bar:nth-child(3) {
+      height: 8px;
+      animation-delay: 0.3s;
+    }
+
+    .eq-bar:nth-child(4) {
+      height: 14px;
+      animation-delay: 0.1s;
+    }
+
+    @keyframes eqBounce {
+
+      0%,
+      100% {
+        transform: scaleY(0.4);
+        opacity: 0.6;
+      }
+
+      50% {
+        transform: scaleY(1);
+        opacity: 1;
+      }
+    }
+
+    #music-player.paused .eq-bars {
+      display: none;
+    }
+
+    #music-player.paused .music-status::before {
+      content: '';
+    }
   </style>
 </head>
 
@@ -643,12 +1021,16 @@
   <div id="music-player" class="paused" role="button" aria-label="Play / Pause musik" onclick="toggleMusic()">
     <button id="music-btn" aria-hidden="true">
       <!-- ICON PLAY -->
-      <svg id="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      <svg id="icon-play" viewBox="0 0 24 24">
+        <path d="M8 5v14l11-7z" />
+      </svg>
       <!-- ICON PAUSE -->
-      <svg id="icon-pause" viewBox="0 0 24 24" style="display:none"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+      <svg id="icon-pause" viewBox="0 0 24 24" style="display:none">
+        <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+      </svg>
     </button>
     <div class="music-info">
-      <span class="music-title">🎵 lagu kita</span>
+      <span class="music-title">🎵 lagu orang imupp</span>
       <span class="music-status" id="music-status">tap untuk play</span>
     </div>
     <div class="eq-bars" aria-hidden="true">
@@ -731,12 +1113,8 @@
           <span class="photo-number-badge">01 / 04</span>
           <div class="photo-wrapper">
             <!-- 🔽 GANTI src="" INI → FOTO 1 -->
-            <img
-              src="foto1.png"
-              alt="Foto kenangan bersama Alifa 1"
-              loading="lazy"
-              onerror="this.style.display='none'"
-            />
+            <img src="foto1.png" alt="Foto kenangan bersama Alifa 1" loading="lazy"
+              onerror="this.style.display='none'" />
             <div class="photo-placeholder">
               <span class="placeholder-icon">📷</span>
               <span>Foto 1 — isi src="" di atas ya</span>
@@ -763,12 +1141,8 @@
           <span class="photo-number-badge">02 / 04</span>
           <div class="photo-wrapper">
             <!-- 🔽 GANTI src="" INI → FOTO 2 -->
-            <img
-              src="foto2.png"
-              alt="Foto kenangan bersama Alifa 2"
-              loading="lazy"
-              onerror="this.style.display='none'"
-            />
+            <img src="foto2.png" alt="Foto kenangan bersama Alifa 2" loading="lazy"
+              onerror="this.style.display='none'" />
             <div class="photo-placeholder">
               <span class="placeholder-icon">📷</span>
               <span>Foto 2 — isi src="" di atas ya</span>
@@ -795,12 +1169,8 @@
           <span class="photo-number-badge">03 / 04</span>
           <div class="photo-wrapper">
             <!-- 🔽 GANTI src="" INI → FOTO 3 -->
-            <img
-              src="foto3.png"
-              alt="Foto kenangan bersama Alifa 3"
-              loading="lazy"
-              onerror="this.style.display='none'"
-            />
+            <img src="foto3.png" alt="Foto kenangan bersama Alifa 3" loading="lazy"
+              onerror="this.style.display='none'" />
             <div class="photo-placeholder">
               <span class="placeholder-icon">📷</span>
               <span>Foto 3 — isi src="" di atas ya</span>
@@ -827,12 +1197,8 @@
           <span class="photo-number-badge">04 / 04</span>
           <div class="photo-wrapper">
             <!-- 🔽 GANTI src="" INI → FOTO 4 -->
-            <img
-              src="foto4.png"
-              alt="Foto kenangan bersama Alifa 4"
-              loading="lazy"
-              onerror="this.style.display='none'"
-            />
+            <img src="foto4.png" alt="Foto kenangan bersama Alifa 4" loading="lazy"
+              onerror="this.style.display='none'" />
             <div class="photo-placeholder">
               <span class="placeholder-icon">📷</span>
               <span>Foto 4 — isi src="" di atas ya</span>
@@ -901,11 +1267,11 @@
   ============================================ -->
   <script>
     /* ── AUDIO SETUP ── */
-    var audio   = document.getElementById('bg-audio');
-    var player  = document.getElementById('music-player');
-    var iconPlay  = document.getElementById('icon-play');
+    var audio = document.getElementById('bg-audio');
+    var player = document.getElementById('music-player');
+    var iconPlay = document.getElementById('icon-play');
     var iconPause = document.getElementById('icon-pause');
-    var statusEl  = document.getElementById('music-status');
+    var statusEl = document.getElementById('music-status');
     var isPlaying = false;
 
     audio.volume = 0.8; /* Volume 80% — sedikit lebih keras */
@@ -913,7 +1279,7 @@
     function startMusic() {
       audio.play().then(function () {
         isPlaying = true;
-        iconPlay.style.display  = 'none';
+        iconPlay.style.display = 'none';
         iconPause.style.display = 'block';
         player.classList.remove('paused');
         statusEl.textContent = 'playing ♪';
@@ -926,7 +1292,7 @@
       if (isPlaying) {
         audio.pause();
         isPlaying = false;
-        iconPlay.style.display  = 'block';
+        iconPlay.style.display = 'block';
         iconPause.style.display = 'none';
         player.classList.add('paused');
         statusEl.textContent = 'paused';
@@ -945,11 +1311,11 @@
 
       /* Fallback: play saat user pertama kali menyentuh splash screen */
       splash.addEventListener('touchstart', startMusic, { once: true });
-      splash.addEventListener('click',      startMusic, { once: true });
+      splash.addEventListener('click', startMusic, { once: true });
 
       /* Fallback kedua: play saat ada interaksi pertama di halaman mana saja */
       document.addEventListener('touchstart', startMusic, { once: true });
-      document.addEventListener('click',      startMusic, { once: true });
+      document.addEventListener('click', startMusic, { once: true });
 
       setTimeout(function () {
         splash.classList.add('hidden');
@@ -960,16 +1326,16 @@
     /* 2 ── FLOATING HEARTS: dibuat secara dinamis */
     (function () {
       var container = document.getElementById('hearts-bg');
-      var symbols = ['💗','💕','♥','💖','✨','🌸','💓','💞','🤍'];
+      var symbols = ['💗', '💕', '♥', '💖', '✨', '🌸', '💓', '💞', '🤍'];
       for (var i = 0; i < 24; i++) {
         var el = document.createElement('div');
         el.className = 'heart-particle';
         el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
         el.style.cssText =
           'font-size:' + (Math.random() * 14 + 10).toFixed(1) + 'px;' +
-          'left:'      + (Math.random() * 100).toFixed(1) + '%;' +
+          'left:' + (Math.random() * 100).toFixed(1) + '%;' +
           'animation-duration:' + (Math.random() * 12 + 10).toFixed(1) + 's;' +
-          'animation-delay:-'   + (Math.random() * 14).toFixed(1) + 's;';
+          'animation-delay:-' + (Math.random() * 14).toFixed(1) + 's;';
         container.appendChild(el);
       }
     })();
@@ -1003,4 +1369,5 @@
   </script>
 
 </body>
+
 </html>
