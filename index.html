@@ -546,10 +546,118 @@
     /* Responsive */
     @media (max-width: 380px) { .hero-name { font-size: 2.3rem; } .hero-title { font-size: 1.7rem; } }
     @media (min-width: 600px) { .timeline, .lily-footer { max-width: 520px; margin-left: auto; margin-right: auto; } }
+
+    /* ============================================
+       MUSIC PLAYER — pojok kiri bawah
+    ============================================ */
+    #music-player {
+      position: fixed;
+      bottom: 22px;
+      left: 16px;
+      z-index: 8888;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(26, 10, 18, 0.82);
+      border: 1px solid rgba(232, 100, 154, 0.45);
+      border-radius: 999px;
+      padding: 8px 16px 8px 10px;
+      backdrop-filter: blur(14px);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.45), 0 0 0 1px rgba(232,100,154,0.1);
+      cursor: pointer;
+      user-select: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    #music-player:active { transform: scale(0.95); }
+
+    #music-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #e8649a, #c2185b);
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      flex-shrink: 0;
+      box-shadow: 0 0 12px rgba(232,100,154,0.5);
+      transition: transform 0.15s ease;
+    }
+    #music-btn:active { transform: scale(0.9); }
+    #music-btn svg { width: 16px; height: 16px; fill: #fff; }
+
+    .music-info {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .music-title {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: #ffb3d1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 120px;
+    }
+    .music-status {
+      font-size: 0.62rem;
+      color: #d48aab;
+      font-weight: 300;
+    }
+
+    /* Equalizer bar animasi saat playing */
+    .eq-bars {
+      display: flex;
+      align-items: flex-end;
+      gap: 2px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+    .eq-bar {
+      width: 3px;
+      background: #e8649a;
+      border-radius: 2px;
+      animation: eqBounce 0.8s ease-in-out infinite;
+    }
+    .eq-bar:nth-child(1) { height: 6px;  animation-delay: 0s;    }
+    .eq-bar:nth-child(2) { height: 12px; animation-delay: 0.15s; }
+    .eq-bar:nth-child(3) { height: 8px;  animation-delay: 0.3s;  }
+    .eq-bar:nth-child(4) { height: 14px; animation-delay: 0.1s;  }
+    @keyframes eqBounce {
+      0%, 100% { transform: scaleY(0.4); opacity: 0.6; }
+      50%       { transform: scaleY(1);   opacity: 1; }
+    }
+    #music-player.paused .eq-bars { display: none; }
+    #music-player.paused .music-status::before { content: ''; }
   </style>
 </head>
 
 <body>
+
+  <!-- AUDIO PLAYER -->
+  <audio id="bg-audio" src="lagu.mp3" loop preload="auto"></audio>
+
+  <!-- TOMBOL MUSIK — pojok kiri bawah (fixed) -->
+  <div id="music-player" class="paused" role="button" aria-label="Play / Pause musik" onclick="toggleMusic()">
+    <button id="music-btn" aria-hidden="true">
+      <!-- ICON PLAY -->
+      <svg id="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      <!-- ICON PAUSE -->
+      <svg id="icon-pause" viewBox="0 0 24 24" style="display:none"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+    </button>
+    <div class="music-info">
+      <span class="music-title">🎵 lagu kita</span>
+      <span class="music-status" id="music-status">tap untuk play</span>
+    </div>
+    <div class="eq-bars" aria-hidden="true">
+      <div class="eq-bar"></div>
+      <div class="eq-bar"></div>
+      <div class="eq-bar"></div>
+      <div class="eq-bar"></div>
+    </div>
+  </div>
 
   <!-- ============================================
        SPLASH SCREEN
@@ -792,9 +900,57 @@
        JAVASCRIPT
   ============================================ -->
   <script>
-    /* 1 ── SPLASH SCREEN: menghilang setelah 3 detik */
+    /* ── AUDIO SETUP ── */
+    var audio   = document.getElementById('bg-audio');
+    var player  = document.getElementById('music-player');
+    var iconPlay  = document.getElementById('icon-play');
+    var iconPause = document.getElementById('icon-pause');
+    var statusEl  = document.getElementById('music-status');
+    var isPlaying = false;
+
+    audio.volume = 0.8; /* Volume 80% — sedikit lebih keras */
+
+    function startMusic() {
+      audio.play().then(function () {
+        isPlaying = true;
+        iconPlay.style.display  = 'none';
+        iconPause.style.display = 'block';
+        player.classList.remove('paused');
+        statusEl.textContent = 'playing ♪';
+      }).catch(function () {
+        /* Autoplay diblokir browser — tunggu interaksi */
+      });
+    }
+
+    function toggleMusic() {
+      if (isPlaying) {
+        audio.pause();
+        isPlaying = false;
+        iconPlay.style.display  = 'block';
+        iconPause.style.display = 'none';
+        player.classList.add('paused');
+        statusEl.textContent = 'paused';
+      } else {
+        startMusic();
+      }
+    }
+
+    /* 1 ── SPLASH SCREEN: menghilang setelah 3 detik
+            + otomatis coba play musik saat splash tampil */
     window.addEventListener('load', function () {
       var splash = document.getElementById('splash-screen');
+
+      /* Coba autoplay langsung (works di Android WebView & beberapa browser) */
+      startMusic();
+
+      /* Fallback: play saat user pertama kali menyentuh splash screen */
+      splash.addEventListener('touchstart', startMusic, { once: true });
+      splash.addEventListener('click',      startMusic, { once: true });
+
+      /* Fallback kedua: play saat ada interaksi pertama di halaman mana saja */
+      document.addEventListener('touchstart', startMusic, { once: true });
+      document.addEventListener('click',      startMusic, { once: true });
+
       setTimeout(function () {
         splash.classList.add('hidden');
         splash.addEventListener('transitionend', function () { splash.remove(); }, { once: true });
